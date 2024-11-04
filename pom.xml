@@ -12,7 +12,7 @@
 	<artifactId>SpaceShips</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spaceShips</name>
-	<description>Prueba tecnica de naves espaciales en Spring Boot</description>
+	<description>Prueba técnica de naves espaciales en Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
