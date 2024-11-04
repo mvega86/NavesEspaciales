@@ -1,10 +1,10 @@
-package com.pruebaTecnica.navesEspaciales;
+package com.pruebaTecnica.spaceShips;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NavesEspacialesApplicationTests {
+class SpaceShipsApplicationTests {
 
 	@Test
 	void contextLoads() {

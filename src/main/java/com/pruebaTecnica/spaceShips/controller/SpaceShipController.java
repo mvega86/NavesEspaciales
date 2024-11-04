@@ -1,4 +1,4 @@
-package com.pruebaTecnica.navesEspaciales.controller;
+package com.pruebaTecnica.spaceShips.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping(path = "naves_espaciales")
 @Tag(name = "Naves espaciales")
-public class NaveEspacialController {
+public class SpaceShipController {
 
     @Operation(summary = "Obtiene todas las naves espaciales")
     @GetMapping

@@ -1,4 +1,4 @@
-package com.pruebaTecnica.navesEspaciales.config;
+package com.pruebaTecnica.spaceShips.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
