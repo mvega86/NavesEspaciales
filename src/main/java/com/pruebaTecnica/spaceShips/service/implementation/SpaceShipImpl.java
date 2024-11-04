@@ -27,6 +27,14 @@ public class SpaceShipImpl implements ISpaceShipService {
 
     @Override
     public Page<SpaceShip> getAll(int page, int size) {
+        //La pagina no puede ser menor que 0
+        if (page < 0) {
+            throw new SpaceShipException("The page number can't be negative.", HttpStatus.BAD_REQUEST);
+        }
+        //La tamaño no puede ser menor que 0
+        if (size <= 0) {
+            throw new SpaceShipException("The size can't be less or equal to zero.", HttpStatus.BAD_REQUEST);
+        }
         return spaceShipRepository.findAll(PageRequest.of(page, size));
     }
 
