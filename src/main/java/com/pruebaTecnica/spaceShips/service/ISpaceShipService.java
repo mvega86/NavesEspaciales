@@ -1,6 +1,7 @@
 package com.pruebaTecnica.spaceShips.service;
 
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
+import com.pruebaTecnica.spaceShips.service.DTO.SpaceShipDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +12,13 @@ import java.util.Optional;
 public interface ISpaceShipService {
     public Page<SpaceShip> getAll(int page, int size);
 
-    public Optional<SpaceShip> getSpaceShipById(Long id);
+    public SpaceShip getSpaceShipById(Long id);
 
     public List<SpaceShip> getSpaceShipsByName(String name);
 
-    public SpaceShip createSpaceShip(SpaceShip spaceShip);
+    public SpaceShip createSpaceShip(SpaceShipDTO spaceShipDTO);
 
-    public SpaceShip updateSpaceShip(Long id, SpaceShip spaceShip);
+    public SpaceShip updateSpaceShip(Long id, SpaceShipDTO spaceShipDTO);
 
     public void deleteSpaceShip(Long id);
 }
