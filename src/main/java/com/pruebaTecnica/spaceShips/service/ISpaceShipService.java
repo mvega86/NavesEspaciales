@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 public interface ISpaceShipService {
-    public Page<SpaceShip> getAllSpaceShips(int page, int size);
+    public Page<SpaceShip> getAll(int page, int size);
 
     public Optional<SpaceShip> getSpaceShipById(Long id);
 

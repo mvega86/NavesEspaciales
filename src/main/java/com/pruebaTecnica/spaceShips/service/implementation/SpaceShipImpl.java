@@ -20,7 +20,7 @@ public class SpaceShipImpl implements ISpaceShipService {
     }
 
     @Override
-    public Page<SpaceShip> getAllSpaceShips(int page, int size) {
+    public Page<SpaceShip> getAll(int page, int size) {
         return spaceShipRepository.findAll(PageRequest.of(page, size));
     }
 
