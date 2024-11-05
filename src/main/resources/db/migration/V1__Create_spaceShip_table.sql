@@ -1,0 +1,11 @@
+CREATE TABLE space_ship (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+INSERT INTO space_ship(name)
+VALUES
+('WIND-X'),
+('WIND-X1'),
+('WIND-X2'),
+('WIND-X3')
