@@ -1,4 +1,4 @@
-package com.pruebaTecnica.spaceShips.service.DTO;
+package com.pruebaTecnica.spaceShips.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -13,7 +13,7 @@ public class LoggingAspect {
     @Before("execution(* com.example.spaceships.SpaceShipController.getById(..)) && args(id)")
     public void logNegativeId(Long id) {
         if (id < 0) {
-            logger.warn("A spacecraft with a negative ID was requested: {}", id);
+            logger.error("A spacecraft with a negative ID was requested: {}"+ id);
         }
     }
 }

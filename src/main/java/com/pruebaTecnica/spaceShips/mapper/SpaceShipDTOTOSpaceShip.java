@@ -1,7 +1,7 @@
 package com.pruebaTecnica.spaceShips.mapper;
 
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
-import com.pruebaTecnica.spaceShips.service.DTO.SpaceShipDTO;
+import com.pruebaTecnica.spaceShips.dto.SpaceShipDTO;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,4 +12,5 @@ public class SpaceShipDTOTOSpaceShip implements IMapper<SpaceShipDTO, SpaceShip>
         spaceShip.setName(in.getName());
         return spaceShip;
     }
+
 }

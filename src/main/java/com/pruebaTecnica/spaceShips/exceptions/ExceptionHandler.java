@@ -1,5 +1,6 @@
 package com.pruebaTecnica.spaceShips.exceptions;
 
+import com.pruebaTecnica.spaceShips.exceptions.SpaceShipException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

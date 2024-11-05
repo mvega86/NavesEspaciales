@@ -1,7 +1,8 @@
 package com.pruebaTecnica.spaceShips.controller;
 
+import com.pruebaTecnica.spaceShips.dto.FilterDTO;
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
-import com.pruebaTecnica.spaceShips.service.DTO.SpaceShipDTO;
+import com.pruebaTecnica.spaceShips.dto.SpaceShipDTO;
 import com.pruebaTecnica.spaceShips.service.ISpaceShipService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -22,19 +23,21 @@ public class SpaceShipController {
     private ISpaceShipService spaceShipService;
 
     @GetMapping
-    public ResponseEntity<Page<SpaceShip>> getAll(@RequestParam int page, @RequestParam int size) {
-        return ResponseEntity.ok(spaceShipService.getAll(page, size));
+    public ResponseEntity<Page<SpaceShip>> find(@ModelAttribute FilterDTO filterDTO,
+                                                  @RequestParam int page,
+                                                  @RequestParam int size) {
+        return ResponseEntity.ok(spaceShipService.getAll(filterDTO, page, size));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SpaceShip> getById(@PathVariable Long id) {
+    public ResponseEntity<SpaceShip> read(@PathVariable Long id) {
         return ResponseEntity.ok(spaceShipService.getSpaceShipById(id));
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<SpaceShip>> getByName(@RequestParam String name) {
-        return ResponseEntity.ok(spaceShipService.getSpaceShipsByName(name));
-    }
+//    @GetMapping("/search")
+//    public ResponseEntity<List<SpaceShip>> getByName(@RequestParam String name) {
+//        return ResponseEntity.ok(spaceShipService.getSpaceShipsByName(name));
+//    }
 
     @PostMapping
     public ResponseEntity<SpaceShip> create(@RequestBody SpaceShipDTO spaceShipDTO) {

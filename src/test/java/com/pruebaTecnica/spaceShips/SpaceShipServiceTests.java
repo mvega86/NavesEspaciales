@@ -1,4 +1,5 @@
 package com.pruebaTecnica.spaceShips;
+import com.pruebaTecnica.spaceShips.dto.FilterDTO;
 import com.pruebaTecnica.spaceShips.exceptions.SpaceShipException;
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
 import com.pruebaTecnica.spaceShips.persistence.repository.SpaceShipRepository;
@@ -35,11 +36,12 @@ public class SpaceShipServiceTests {
         // Datos de prueba
         List<SpaceShip> ships = Arrays.asList(new SpaceShip(), new SpaceShip());
         Page<SpaceShip> pagedResponse = new PageImpl<>(ships);
+        FilterDTO filterDTO = new FilterDTO();
 
         when(spaceShipRepository.findAll(PageRequest.of(0, 2))).thenReturn(pagedResponse);
 
         // Llamada al método
-        Page<SpaceShip> result = spaceShipService.getAll(0, 2);
+        Page<SpaceShip> result = spaceShipService.getAll(filterDTO,0, 2);
 
         // Validaciones
         assertNotNull(result);
@@ -49,16 +51,18 @@ public class SpaceShipServiceTests {
 
     @Test
     public void testGetAllSpaceShips_WithInvalidPage() {
+        FilterDTO filterDTO = new FilterDTO();
         Exception exception = assertThrows(SpaceShipException.class, () -> {
-            spaceShipService.getAll(-1, 2);
+            spaceShipService.getAll(filterDTO, -1, 2);
         });
         assertEquals("The page number can't be negative.", exception.getMessage());
     }
 
     @Test
     public void testGetAllSpaceShips_WithInvalidSize() {
+        FilterDTO filterDTO = new FilterDTO();
         Exception exception = assertThrows(SpaceShipException.class, () -> {
-            spaceShipService.getAll(0, 0);
+            spaceShipService.getAll(filterDTO,0, 0);
         });
         assertEquals("The size can't be less or equal to zero.", exception.getMessage());
     }
