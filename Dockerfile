@@ -5,7 +5,8 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR de tu aplicación al contenedor
-COPY target/*.jar app.jar
+ARG VERSION
+COPY target/SpaceShips-${VERSION}.jar app.jar
 
 # Expone el puerto en el que tu aplicación escucha
 EXPOSE 8080
