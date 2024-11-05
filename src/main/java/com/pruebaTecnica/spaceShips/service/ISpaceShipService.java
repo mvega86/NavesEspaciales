@@ -1,20 +1,20 @@
 package com.pruebaTecnica.spaceShips.service;
 
+import com.pruebaTecnica.spaceShips.dto.FilterDTO;
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
-import com.pruebaTecnica.spaceShips.service.DTO.SpaceShipDTO;
+import com.pruebaTecnica.spaceShips.dto.SpaceShipDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface ISpaceShipService {
-    public Page<SpaceShip> getAll(int page, int size);
+    public Page<SpaceShip> getAll(FilterDTO filterDTO, int page, int size);
 
     public SpaceShip getSpaceShipById(Long id);
 
-    public List<SpaceShip> getSpaceShipsByName(String name);
+//    public List<SpaceShip> getSpaceShipsByName(String name);
 
     public SpaceShip createSpaceShip(SpaceShipDTO spaceShipDTO);
 
