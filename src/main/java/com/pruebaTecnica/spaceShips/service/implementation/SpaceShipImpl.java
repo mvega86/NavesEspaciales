@@ -1,11 +1,13 @@
 package com.pruebaTecnica.spaceShips.service.implementation;
 
+import com.pruebaTecnica.spaceShips.config.CacheConfig;
 import com.pruebaTecnica.spaceShips.exceptions.SpaceShipException;
 import com.pruebaTecnica.spaceShips.mapper.SpaceShipDTOTOSpaceShip;
 import com.pruebaTecnica.spaceShips.persistence.entity.SpaceShip;
 import com.pruebaTecnica.spaceShips.persistence.repository.SpaceShipRepository;
 import com.pruebaTecnica.spaceShips.service.DTO.SpaceShipDTO;
 import com.pruebaTecnica.spaceShips.service.ISpaceShipService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ public class SpaceShipImpl implements ISpaceShipService {
     }
 
     @Override
+    @Cacheable(value = CacheConfig.USERS_INFO_CACHE, unless = "#result == null")
     public Page<SpaceShip> getAll(int page, int size) {
         //La pagina no puede ser menor que 0
         if (page < 0) {
@@ -51,6 +54,7 @@ public class SpaceShipImpl implements ISpaceShipService {
     }
 
     @Override
+    @Cacheable(value = CacheConfig.USERS_INFO_CACHE, unless = "#result == null")
     public List<SpaceShip> getSpaceShipsByName(String name) {
         //Verifico si se genera un listado de SpaceShip con el nombre dado
         List<SpaceShip> spaceShipList = spaceShipRepository.findByNameContaining(name);
